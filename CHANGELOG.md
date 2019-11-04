@@ -2,6 +2,53 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/edvardchen/eslint-plugin-i18next/compare/v3.1.1...v3.2.0) (2019-10-21)
+
+
+### Features
+
+* allow displayName property in classes ([5362281](https://github.com/edvardchen/eslint-plugin-i18next/commit/5362281))
+
+### [3.1.1](https://github.com/edvardchen/eslint-plugin-i18next/compare/v3.1.0...v3.1.1) (2019-10-10)
+
+
+### Bug Fixes
+
+* add missing plugin in recommended config ([dde83ed](https://github.com/edvardchen/eslint-plugin-i18next/commit/dde83ed))
+
+## [3.1.0](https://github.com/edvardchen/eslint-plugin-i18next/compare/v3.0.0...v3.1.0) (2019-10-10)
+
+
+### Features
+
+* ignore not-word string ([1752cbe](https://github.com/edvardchen/eslint-plugin-i18next/commit/1752cbe))
+
+## [3.0.0](https://github.com/edvardchen/eslint-plugin-i18next/compare/v2.5.0...v3.0.0) (2019-10-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* SInce the whitelist was cut short, it would complain when the removed attributes
+were added to custom component like <Foo src="hello" />
+
+### Features
+
+* ignore most DOM attrs ([71483c2](https://github.com/edvardchen/eslint-plugin-i18next/commit/71483c2))
+
+## [2.5.0](https://github.com/edvardchen/eslint-plugin-i18next/compare/v2.4.0...v2.5.0) (2019-10-08)
+
+
+### Features
+
+* add more ignored attributes and callee ([0f9e2ec](https://github.com/edvardchen/eslint-plugin-i18next/commit/0f9e2ec))
+
+## [2.4.0](https://github.com/edvardchen/eslint-plugin-i18next/compare/v2.3.1...v2.4.0) (2019-10-08)
+
+
+### Features
+
+* add ignoreAttribute option ([c854313](https://github.com/edvardchen/eslint-plugin-i18next/commit/c854313))
+
 ### [2.3.1](https://github.com/edvardchen/eslint-plugin-i18next/compare/v2.3.0...v2.3.1) (2019-09-16)
 
 

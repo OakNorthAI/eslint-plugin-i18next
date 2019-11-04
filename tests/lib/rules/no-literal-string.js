@@ -35,13 +35,26 @@ ruleTester.run('no-literal-string', rule, {
     { code: 'import name from "hello";' },
     { code: 'a.indexOf("ios")' },
     { code: 'a.includes("ios")' },
+    { code: 'a.startsWith("ios")' },
+    { code: 'a.endsWith("@gmail.com")' },
     { code: 'export * from "hello_export_all";' },
     { code: 'export { a } from "hello_export";' },
-    { code: 'document.addEventListener("click", (event) => { event.preventDefault() })' },
+    {
+      code:
+        'document.addEventListener("click", (event) => { event.preventDefault() })'
+    },
+    {
+      code:
+        'document.removeEventListener("click", (event) => { event.preventDefault() })'
+    },
+    { code: 'window.postMessage("message", "*")' },
+    { code: 'document.getElementById("some-id")' },
     { code: 'require("hello");' },
     { code: 'const a = require(["hello"]);' },
     { code: 'const a = require(["hel" + "lo"]);' },
     { code: 'const a = 1;' },
+    { code: 'const a = "?";' },
+    { code: `const a = "0123456789!@#$%^&*()_+|~-=\`[]{};':\\",./<>?";` },
     { code: 'i18n("hello");' },
     { code: 'dispatch("hello");' },
     { code: 'store.dispatch("hello");' },
@@ -55,6 +68,7 @@ ruleTester.run('no-literal-string', rule, {
     { code: 'var a = {[A_B]: "hello world"};' },
     { code: 'var a = {A_B: "hello world"};' },
     { code: 'var a = {foo: "FOO"};' },
+    { code: 'class Form extends Component { displayName = "FormContainer" };' },
     // JSX
     { code: '<div className="primary"></div>' },
     { code: '<div className={a ? "active": "inactive"}></div>' },
@@ -62,7 +76,21 @@ ruleTester.run('no-literal-string', rule, {
     { code: '<svg viewBox="0 0 20 40"></svg>' },
     { code: '<line x1="0" y1="0" x2="10" y2="20" />' },
     { code: '<path d="M10 10" />' },
-    { code: '<circle cx="10" cy="10" r="2" fill="red" />' }
+    {
+      code:
+        '<circle width="16px" height="16px" cx="10" cy="10" r="2" fill="red" />'
+    },
+    {
+      code:
+        '<a href="https://google.com" target="_blank" rel="noreferrer noopener"></a>'
+    },
+    {
+      code: '<div id="some-id" tabIndex="0" aria-labelledby="label-id"></div>'
+    },
+    { code: '<div role="button"></div>' },
+    { code: '<img src="./image.png" />' },
+    { code: '<button type="button" for="form-id" />' },
+    { code: '<DIV foo="bar" />', options: [{ ignoreAttribute: ['foo'] }] }
   ],
 
   invalid: [
@@ -76,9 +104,13 @@ ruleTester.run('no-literal-string', rule, {
     { code: 'const a = call("Ffo");', errors },
     { code: 'var a = {foo: "bar"};', errors },
     { code: 'const a = "afoo";', options: [{ ignore: ['^foo'] }], errors },
+    { code: 'class Form extends Component { property = "Something" };', errors },
     // JSX
     { code: '<div>foo</div>', errors },
-    { code: '<div>FOO</div>', errors }
+    { code: '<div>FOO</div>', errors },
+    { code: '<DIV foo="bar" />', errors },
+    { code: '<img src="./image.png" alt="some-image" />', errors },
+    { code: '<button aria-label="Close" type="button" />', errors }
   ]
 });
 
