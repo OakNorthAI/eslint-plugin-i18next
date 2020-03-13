@@ -91,7 +91,9 @@ ruleTester.run('no-literal-string', rule, {
     { code: '<div role="button"></div>' },
     { code: '<img src="./image.png" />' },
     { code: '<button type="button" for="form-id" />' },
-    { code: '<DIV foo="bar" />', options: [{ ignoreAttribute: ['foo'] }] }
+    { code: '<DIV foo="bar" />', options: [{ ignoreAttribute: ['foo'] }] },
+    { code: '<Trans>foo</Trans>' },
+    { code: '<Trans><span>foo</span></Trans>' }
   ],
 
   invalid: [
