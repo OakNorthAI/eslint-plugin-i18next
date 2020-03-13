@@ -41,7 +41,7 @@ or
 This rule aims to avoid developers to display literal string to users
 in those projects which need to support [multi-language](https://www.i18next.com/).
 
-> <span style="color: lightcoral">Note:</span> Disable auto-fix because key in the call `i18next.t(key)` usually was not the same as the literal
+> <span style="color: lightcoral">Note:</span> Disable auto-fix because key in the call `i18next.t(key)` ussally was not the same as the literal
 
 ### Rule Details
 
@@ -235,4 +235,15 @@ Examples of correct code for the `{ "ignoreAttribute": ["foo"] }` option:
 ```jsx
 /*eslint i18next/no-literal-string: ["error", { "ignoreAttribute": ["foo"] }]*/
 const element = <div foo="bar" />;
+```
+
+#### ignoreProperty
+
+The `ignoreProperty` option specifies exceptions not to check for object properties that match one of ignored properties.
+
+Examples of correct code for the `{ "ignoreProperty": ["foo"] }` option:
+
+```jsx
+/*eslint i18next/no-literal-string: ["error", { "ignoreProperty": ["foo"] }]*/
+const a = { foo: 'bar' };
 ```
